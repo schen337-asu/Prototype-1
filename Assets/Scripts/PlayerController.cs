@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 7.0f;
-    private float turnSpeed = 5.0f;
+    private float speed = 3.0f;
+    private float liftSpeed = 5.0f;
     private float horizontalInput;
     private float forwardInput;
 
@@ -21,9 +21,9 @@ public class PlayerController : MonoBehaviour
         forwardInput = Input.GetAxis("Vertical");
 
         // Move the vehicle forward based on vertical input
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
         // Movet the vehicle left and right based on horizontal input
-        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+        transform.Rotate(Vector3.right, Time.deltaTime * liftSpeed * forwardInput);
 
         // note - tint on the editor for playmode can be updated in the "Edit" menu under "Preferences" -> "Colors"
     }
